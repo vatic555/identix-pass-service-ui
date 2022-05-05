@@ -1,0 +1,101 @@
+query getUserVCsHolder($role: AgentsRoles, $startIndex: Int, $count: Int) {
+  getUserVCs(role: $role, startIndex: $startIndex, count: $count) {
+    vcDid
+    vcTypeDid
+    vcParams
+    vcRawText
+    issuerDid
+    holderDid
+    createdAt
+    updatedAt
+    verificationCases {
+        verifierDid
+        verificationStatus
+    }
+  }
+}
+
+query getUserVCsIssuer($role: AgentsRoles, $startIndex: Int, $count: Int) {
+  getUserVCs(role: $role, startIndex: $startIndex, count: $count) {
+    vcDid
+    vcTypeDid
+    vcParams
+    issuerDid
+    holderDid
+    createdAt
+  }
+}
+
+query getUserVCsVerifier($role: AgentsRoles, $startIndex: Int, $count: Int) {
+  getUserVCs(role: $role, startIndex: $startIndex, count: $count) {
+    vcDid
+    vcTypeDid
+    vcParams
+    issuerDid
+    holderDid
+    createdAt
+    verificationCases {
+        verifierDid
+        verificationStatus
+    }
+  }
+}
+
+query getVC($vcDid: String!) {
+  getVC(vcDid: $vcDid) {
+    vcDid
+        vcTypeDid
+        vcParams
+        vcRawText
+        issuerDid
+        holderDid
+        createdAt
+        updatedAt
+        verificationCases {
+            verifierDid
+            verificationStatus
+        }
+  }
+}
+
+query checkAccountExists($did: String!) {
+    checkAccountExists(did: $did)
+}
+
+query getEventLogEntries($startIndex: Int, $count: Int) {
+    getEventLogEntries(startIndex: $startIndex, count: $count) {
+        id
+        ownerDid
+        eventType
+        vcDid
+        message
+        eventDate
+    }
+}
+
+query getVcTypes {
+    getVcTypes {
+        vcTypeDid
+        vcTypeTag
+    }
+}
+
+query whoami {
+    whoami
+}
+
+query getAllAccounts {
+    getAllAccounts
+}
+
+mutation issuerVC($holderDid: String!, $vcTypeDid: String!, $vcParams: String!) {
+    issuerVC(holderDid: $holderDid, vcTypeDid: $vcTypeDid, vcParams: $vcParams)
+}
+
+mutation requestVcVerification($verifierDid: String!, $vcDid: String!) {
+    requestVcVerification(verifierDid: $verifierDid, vcDid: $vcDid)
+}
+
+mutation verifyVC($vcDid: String!, $verificationStatus: String!) {
+    verifyVC(vcDid: $vcDid, verificationStatus: $verificationStatus)
+}

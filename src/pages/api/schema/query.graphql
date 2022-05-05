@@ -1,0 +1,5 @@
+type Query {
+    debug: Json
+
+    whoami: User
+}

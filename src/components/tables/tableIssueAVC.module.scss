@@ -1,0 +1,126 @@
+.border_wrap {
+  position: relative;
+  padding: 0.3vw;
+  background: linear-gradient(92.25deg, #37B9C6 -10.04%, #8F5AE0 116.12%);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.table, .table_wide {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  border-spacing: 0;
+  width: 100%;
+
+  tbody {
+    tr {
+      &:last-of-type {
+        border-bottom-left-radius: 10px;
+      }
+      &:first-of-type {
+        border-bottom-left-radius: 10px;
+      }
+    }
+
+    td {
+      &:first-of-type {
+        padding-left: 30px;
+      }
+      &:last-of-type {
+        padding-right: 30px;
+      }
+
+      a {
+        color: white;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.table_wide {
+  td {
+    &:first-of-type {
+      padding-left: 15px !important;
+    }
+    &:last-of-type {
+      padding-right: 15px !important;
+    }
+  }
+  .thead {
+    td {
+      &:first-of-type {
+        padding-left: 15px;
+      }
+      &:last-of-type {
+        padding-right: 15px;
+      }
+    }
+  }
+  .head_td {
+    padding: 20px 10px;
+  }
+  .body_td {
+    padding: 20px 10px;
+  }
+}
+
+.thead {
+  background: linear-gradient(0deg, rgba(53, 87, 153, 0.29), rgba(53, 87, 153, 0.29)), #241D42;
+  color: white;
+
+  td {
+    &:first-of-type {
+      padding-left: 30px;
+    }
+    &:last-of-type {
+      padding-right: 30px;
+    }
+  }
+}
+
+.head_td {
+  padding: 20px 15px;
+}
+
+.body_row {
+  //cursor: pointer;
+
+  &:nth-of-type(odd) {
+    background: #334275;
+
+    &:hover {
+      background: lighten(#334275, 3%);
+    }
+  }
+  &:nth-of-type(even) {
+    background: #292E5B;
+
+    &:hover {
+      background: darken(#292E5B, 3%);
+    }
+  }
+}
+
+.body_td {
+  padding: 20px 15px;
+  color: white;
+  word-wrap: break-word;
+
+  &.green {
+    font-weight: 700;
+    color: #7EF706;
+  }
+}
+
+.sort_button {
+  border: 0;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  background: url('/assets/sort-btn.svg') center/contain no-repeat;
+}

@@ -1,0 +1,68 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+enum AgentsRoles {
+  holder
+  issuer
+  verifier
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type EventLogEntry {
+  eventDate: DateTime!
+  eventType: String!
+  id: Int!
+  message: String!
+  ownerDid: String!
+  vcDid: String!
+}
+
+type Mutation {
+  issuerVC(holderDid: String!, vcParams: String!, vcTypeDid: String!): Boolean!
+  requestVcVerification(vcDid: String!, verifierDid: String!): Boolean!
+  verifyVC(vcDid: String!, verificationStatus: String!): Boolean!
+}
+
+type Query {
+  checkAccountExists(did: String!): Boolean!
+  getAllAccounts: [String!]!
+  getEventLogEntries(count: Int, startIndex: Int): [EventLogEntry!]!
+  getUserVCs(count: Int, role: AgentsRoles, startIndex: Int): [VC!]!
+  getVC(vcDid: String!): VC!
+  getVcTypes: [VcTypeInfo!]!
+  whoami: String!
+}
+
+type VC {
+  createdAt: String!
+  holderDid: String!
+  issuerDid: String!
+  updatedAt: String!
+  vcDid: String!
+  vcParams: String!
+  vcRawText: String!
+  vcTypeDid: String!
+  verificationCases: [VerificationCase!]!
+}
+
+type VcTypeInfo {
+  vcTypeDid: String!
+  vcTypeTag: String!
+}
+
+type VerificationCase {
+  verificationStatus: VerificationStatuses!
+  verifierDid: String!
+}
+
+enum VerificationStatuses {
+  ACCEPTED
+  PENDING_VERIFY
+  REJECTED
+}

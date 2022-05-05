@@ -1,0 +1,17 @@
+type Mutation {
+    echo(text: String!): String!
+
+    auth(code: String!): AuthResponse!
+}
+
+type AuthResponse {
+    token: String!
+    user: User!
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String
+    did: String!
+}

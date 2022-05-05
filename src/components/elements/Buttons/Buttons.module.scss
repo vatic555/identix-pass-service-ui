@@ -1,0 +1,88 @@
+.button {
+  position: relative;
+  border: 0;
+  width: 100%;
+  height: 56px;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFFFFF;
+  background: linear-gradient(92.25deg, #8F5AE0 -10.04%, #37B9C6 116.12%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .1s ease-in;
+  z-index: 99;
+
+  &:hover {
+    transform: scale(0.99);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(92.25deg, #8F5AE0 -10.04%, #37B9C6 116.12%);
+  }
+}
+
+.button_transparent {
+  position: relative;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #FFFFFF;
+  background: url('/assets/button-gradient-bg.svg') center/contain no-repeat;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .1s ease-in;
+  z-index: 99;
+
+  span {
+    background: linear-gradient(92.25deg, #8F5AE0 -10.04%, #37B9C6 116.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:hover {
+    transform: scale(0.99);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(92.25deg, #8F5AE0 -10.04%, #37B9C6 116.12%);
+  }
+}
+
+.button_gradient {
+  position: relative;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #FFFFFF;
+  background: url('/assets/button-white-bg.svg') center/contain no-repeat;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .1s ease-in;
+  z-index: 99;
+
+  span {
+    background: #FFFFFF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:hover {
+    transform: scale(0.99);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(92.25deg, #8F5AE0 -10.04%, #37B9C6 116.12%);
+  }
+}
